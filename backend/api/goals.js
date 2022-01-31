@@ -3,7 +3,7 @@ const router = express.Router()
 
 const app = express()
 
-const Goal = require('../../models/Goal')
+const Goal = require('../models/Goal')
 
 router.get( '/test', ( req, res ) => res.json({ message: "backend works" }))
 

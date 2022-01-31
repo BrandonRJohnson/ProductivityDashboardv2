@@ -25,7 +25,7 @@ export const SidebarData = [
   {
     title: 'Projects',
     path: '/projects',
-    icon: <GiIcons.Brain />,
+    icon: <GiIcons.GiBrain />,
     cName: 'nav-text'
   },
 ];

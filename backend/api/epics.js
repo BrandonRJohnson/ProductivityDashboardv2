@@ -3,7 +3,7 @@ const router = express.Router()
 
 const app = express()
 
-const Epic = require('../../models/Epic')
+const Epic = require('../models/Epic')
 
 router.get('/', ( req, res ) => {
     Epic.find()

@@ -1,10 +1,9 @@
 const express = require('express')
-const List = require('../../models/List')
 const router = express.Router()
 
 const app = express()
 
-const Goal = require('../../models/List')
+const List = require('../models/List')
 
 router.get( '/test', ( req, res ) => res.json({ message: "backend works" }))
 

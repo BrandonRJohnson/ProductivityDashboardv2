@@ -3,10 +3,9 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 
-
-const list = require('./routes/api/list')
-const goals = require('./routes/api/goals')
-const epics = require('./routes/api/epics')
+const list = require('./api/list')
+const goals = require('./api/goals')
+const epics = require('./api/epics')
 
 const app = express();
 
