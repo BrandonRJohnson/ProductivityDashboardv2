@@ -8,7 +8,7 @@ const ToDoList = () => {
   const onSubmitList = async e => {
     e.preventDefault()
     const {title, description } = e.target
-    await axios.post('/api/list', {
+    await axios.post('http://localhost:5000/api/list', {
       title: title.value,
       description: description.value,
     })
@@ -18,7 +18,7 @@ const ToDoList = () => {
   }
 
   const getList = async () => {
-    const res = await axios.get('/api/list')
+    const res = await axios.get('http://localhost:5000/api/list')
     const data = res.data
     setList(data)
   }
@@ -26,7 +26,7 @@ const ToDoList = () => {
   const onSubmitEdits = async (e, id) => {
     e.preventDefault()
     const { title, description } = e.target
-    await axios.post(`/api/list/update/${id}`, {
+    await axios.post(`http://localhost:5000/api/list/update/${id}`, {
       title: title.value,
       description: description.value,
     })
@@ -37,7 +37,7 @@ const ToDoList = () => {
   const deleteList = async itemToDelete => {
     await axios({
       method: 'DELETE',
-      url: '/api/list/',
+      url: 'http://localhost:5000/api/list',
       data: {
         id: itemToDelete,
       },
