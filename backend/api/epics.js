@@ -33,7 +33,11 @@ router.post('/update/:id', ( req, res ) => {
         {_id: req.params.id},
         {
             $set: {
-                title: req.body.title
+                title: req.body.title,
+                tickets: {
+                    id: req.body.id,
+                    issue: req.body.issue
+                }
             }
         },
         {new: true},

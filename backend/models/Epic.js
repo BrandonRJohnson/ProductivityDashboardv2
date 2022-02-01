@@ -2,15 +2,21 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const EpicSchema = new Schema({
-    title: {
+    project: {
         type: String,
         required: true
     },
 
-    tickets: {
-        type: Array,
-        required: false
-    },
+    tickets: [
+        {
+          id: {
+            type: String,
+          },
+          issue: {
+            type: String,
+          },
+        },
+      ],
 
     description: {
         type: String,
