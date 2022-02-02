@@ -7,18 +7,18 @@ const Projects = () => {
 
   const onSubmitList = async e => {
     e.preventDefault()
-    const {title, description, tickets, id, issue } = e.target
+    const {project, description, tickets } = e.target
     await axios.post('http://localhost:5000/api/epics', {
-      title: title.value,
+      project: project.value,
       description: description.value,
       tickets: [
         {
-          id: id.value,
-          issue: issue.value
+          ticketId: tickets.ticketId.value,
+          issue: tickets.issue.value
         }
       ],
     })
-    title.value = ''
+    project.value = ''
     description.value = ''
     tickets.value = []
     getList()
@@ -32,10 +32,14 @@ const Projects = () => {
 
   const onSubmitEdits = async (e, id) => {
     e.preventDefault()
-    const { project, description } = e.target
+    const { project, description, tickets } = e.target
     await axios.post(`http://localhost:5000/api/epics/update/${id}`, {
       project: project.value,
       description: description.value,
+      tickets: {
+        ticketId: tickets.ticketId.value,
+        issue: tickets.issue.value
+      },
     })
     setEditing(null)
     getList()
@@ -76,7 +80,7 @@ const Projects = () => {
                 <div className="DataOutput__card--details">
                   <div>
                     <span>Projects:</span>
-                    {item.title}
+                    {item.project}
                   </div>
                   <div>
                     <span>Description:</span>
@@ -100,8 +104,8 @@ const Projects = () => {
         <div key={item._id} className="DataOutput__editing">
           <form onSubmit={e => onSubmitEdits(e, item._id)}>
             <div className="DataOutput__editing--option">
-              <label htmlFor="title">Title:</label>
-              <input type="text" name="title" defaultValue={item.title} />
+              <label htmlFor="project">project:</label>
+              <input type="text" name="project" defaultValue={item.project} />
             </div>
             <div className="DataOutput__editing--option">
               <label htmlFor="description">Description:</label>
